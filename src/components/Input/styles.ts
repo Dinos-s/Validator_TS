@@ -5,7 +5,7 @@ export const InputContainer = styled.div`
     height: 42px;
     color: #fff;
     border: 1px solid #81259d;
-    boeder-radius: 21px;
+    border-radius: 21px;
     overflow: hidden;
     padding: 0 10px;
 

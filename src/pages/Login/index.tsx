@@ -10,6 +10,7 @@ import {
 import {yupResolver} from '@hookform/resolvers/yup'
 import * as yup from 'yup'
 import { defaultValues, IFormLogin } from "./types";
+import { Button } from "../../components/Button";
 
 const schema = yup.object({
     email: yup.string().email('E-mail Inválido').required('Campo Obrigatório'),
@@ -25,7 +26,11 @@ const Login = () => {
         reValidateMode: "onChange",
     });
 
-    console.log(errors);
+    if(isValid === false){
+        document.querySelector('button')?.setAttribute('disabled', 'disabled');
+    }else{
+        document.querySelector('button')?.removeAttribute('disabled');
+    }
 
     return(<Container>
         <LoginContainer>
@@ -36,6 +41,7 @@ const Login = () => {
                 <Spacing/>
                 <Input type="password" name="password" placeholder="Senha" control={control} errorMessage={errors?.password?.message}/>
                 <Spacing/>
+                <Button title="Entrar" />
             </Column>
         </LoginContainer>
     </Container>)
